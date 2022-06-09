@@ -26,7 +26,7 @@ public:
         int cnt2=0;
         ListNode*temp2=head;
         ListNode*prev=NULL;
-        while(x-- && temp2!=NULL)
+        while(x>cnt2 && temp2!=NULL)
         {
             prev=temp2;
             temp2=temp2->next;
