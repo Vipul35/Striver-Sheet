@@ -6,7 +6,7 @@ using namespace std;
 class Solution {
   public:
     // Function to detect cycle in an undirected graph.
-    bool cycle_helper(vector<int> adj[],vector<int> &visited,int parent,int node)
+    bool cycle_helper(vector<int> adj[],unordered_map<int,bool> &visited,int parent,int node)
     {
         visited[node]=1;
         for(auto nbr:adj[node])
@@ -27,7 +27,7 @@ class Solution {
     }
     bool isCycle(int V, vector<int> adj[]) {
         // Code here
-        vector <int> visited(V+1,0);
+        unordered_map<int,bool> visited;
         for(int i=0;i<V;i++)
         {
             if(!visited[i])
