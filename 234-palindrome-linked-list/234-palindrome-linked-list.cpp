@@ -25,10 +25,6 @@ public:
         return prev;
     }
     bool isPalindrome(ListNode* head) {
-        if(head==NULL || head->next==NULL)
-        {
-            return true;
-        }
         ListNode*fast=head;
         ListNode*slow=head;
         while(fast->next!=NULL && fast->next->next!=NULL)
