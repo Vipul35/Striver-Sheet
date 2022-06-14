@@ -6,21 +6,27 @@ using namespace std;
 class Solution {
   public:
     // Function to detect cycle in an undirected graph.
-    bool cycle_helper(vector<int> adj[],unordered_map<int,bool> &visited,int parent,int node)
+    bool cycle(vector<int> adj[],unordered_map<int,bool> &visited,int src)
     {
-        visited[node]=1;
-        for(auto nbr:adj[node])
+        queue<pair<int,int>> q;
+        q.push({src,-1});
+        visited[src]=true;
+        while(!q.empty())
         {
-            if(visited[nbr]==0)
+            int node=q.front().first;
+            int parent=q.front().second;
+            q.pop();
+            for(auto nbr:adj[node])
             {
-                if(cycle_helper(adj,visited,node,nbr))
+                if(!visited[nbr])
+                {
+                    q.push({nbr,node});
+                    visited[nbr]=true;
+                }
+                else if(parent!=nbr)
                 {
                     return true;
                 }
-            }
-            else if(nbr!=parent)
-            {
-                return true;
             }
         }
         return false;
@@ -32,10 +38,10 @@ class Solution {
         {
             if(!visited[i])
             {
-                if(cycle_helper(adj,visited,-1,i))
-                {
-                    return true;
-                }
+            if(cycle(adj,visited,i))
+            {
+                return true;
+            }
             }
         }
         return false;
