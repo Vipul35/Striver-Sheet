@@ -16,7 +16,10 @@ public:
     }
     vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) {
         vector<vector<bool>> visited(image.size(),vector<bool> (image[0].size(),0));
+        if(image[sr][sc]!=color)
+        {
        dfs(image,sr,sc,color,visited,image[sr][sc]);
+        }
         return image;
     }
 };
