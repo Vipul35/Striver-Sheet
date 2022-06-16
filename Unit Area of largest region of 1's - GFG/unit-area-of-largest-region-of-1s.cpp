@@ -7,27 +7,25 @@ class Solution
 {
     public:
     //Function to find unit area of the largest region of 1s.
-    int dfs(vector<vector<int>> &grid,vector<vector<bool>> &visited,int i,int j)
+    int dfs(vector<vector<int>> &grid,int i,int j)
     {
-        if(i<0 || i>=grid.size() || j<0 || j>=grid[0].size() || grid[i][j]==0 || visited[i][j])
+        if(i<0 || i>=grid.size() || j<0 || j>=grid[0].size() || grid[i][j]!=1)
         {
             return 0;
         }
-        visited[i][j]=true;
-        return 1+dfs(grid,visited,i+1,j)+dfs(grid,visited,i-1,j)+dfs(grid,visited,i-1,j-1)+dfs(grid,visited,i-1,j+1)+dfs(grid,visited,i+1,j+1)+
-        dfs(grid,visited,i,j+1)+dfs(grid,visited,i,j-1)+dfs(grid,visited,i+1,j-1);
+        grid[i][j]=2;
+        return 1+dfs(grid,i+1,j)+dfs(grid,i-1,j)+dfs(grid,i+1,j+1)+dfs(grid,i+1,j-1)+dfs(grid,i-1,j+1)+dfs(grid,i-1,j-1)+dfs(grid,i,j+1)+dfs(grid,i,j-1);
     }
     int findMaxArea(vector<vector<int>>& grid) {
         // Code here
-        vector<vector<bool>> visited(grid.size(),vector<bool> (grid[0].size(),false));
         int ans=0;
         for(int i=0;i<grid.size();i++)
         {
             for(int j=0;j<grid[0].size();j++)
             {
-                if(!visited[i][j] && grid[i][j]==1)
+                if(grid[i][j]==1)
                 {
-                    ans=max(ans,dfs(grid,visited,i,j));
+                    ans=max(ans,dfs(grid,i,j));
                 }
             }
         }
