@@ -2,7 +2,7 @@ class Solution {
 public:
     void dfs(vector<vector<int>> &image,int i,int j,int color,int img)
     {
-        if(i<0 || j<0 || i>=image.size() || j>=image[0].size() ||
+        if(i<0 || j<0 || i==image.size() || j==image[0].size() ||
          image[i][j]!=img)
         {
             return;
