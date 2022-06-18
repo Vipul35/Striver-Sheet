@@ -45,17 +45,13 @@ public:
                 list1=list1->next;
             }
         }
-        while(list1!=NULL)
+        if(list1!=NULL)
         {
             temp->next=list1;
-                temp=temp->next;
-                list1=list1->next;
         }
-        while(list2!=NULL)
+        else
         {
             temp->next=list2;
-                temp=temp->next;
-                list2=list2->next;
         }
         return ptr;
     }
