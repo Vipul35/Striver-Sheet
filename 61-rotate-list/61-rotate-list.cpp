@@ -16,27 +16,21 @@ public:
             return head;
         }
         ListNode*temp=head;
-        ListNode*curr=head;
-        int cnt=0;
-        ListNode*prev=NULL;
-        while(curr!=NULL)
-        {
-            curr=curr->next;
-            cnt++;
-        }
-        k=(k%cnt);
-        while(k--)
-        {   
+        int cnt=1;
         while(temp->next!=NULL)
         {
-            prev=temp;
+            temp=temp->next;
+            cnt++;
+        }
+        temp->next=head;
+        k=(k%cnt);
+        int len=cnt-k;
+        while(len--)
+        {
             temp=temp->next;
         }
-            temp->next=head;
-            head=temp;
-            prev->next=NULL;
-            
-        }
-        return temp;
+        head=temp->next;
+        temp->next=NULL;
+        return head;
     }
 };
