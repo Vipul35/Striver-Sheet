@@ -33,7 +33,7 @@ public:
             temp=temp->next;
         }
             temp->next=head;
-            head=prev->next;
+            head=temp;
             prev->next=NULL;
             
         }
