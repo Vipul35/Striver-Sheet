@@ -32,6 +32,6 @@ public:
         {
             return false;
         }
-        return isBalanced(root->right)&&isBalanced(root->left);
+        return isBalanced(root->right)&isBalanced(root->left);
     }
 };
