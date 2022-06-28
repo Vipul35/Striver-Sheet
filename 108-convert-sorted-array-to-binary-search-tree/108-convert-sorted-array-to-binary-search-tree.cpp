@@ -23,12 +23,7 @@ public:
         root->right=bst(nums,mid+1,e);
         return root;
     }
-    TreeNode* sortedArrayToBST(vector<int>& nums) { 
-        if(nums.size()==0)
-        {
-            return NULL;
-        }
-        TreeNode*root=bst(nums,0,nums.size()-1);
-        return root;
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        return bst(nums,0,nums.size()-1);
     }
 };
