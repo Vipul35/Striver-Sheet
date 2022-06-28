@@ -18,7 +18,7 @@ public:
             root=new TreeNode(val);
             return root;
         }
-        if(root->val>=val)
+        if(root->val>val)
         {
             root->left=bst(root->left,val);
         }
