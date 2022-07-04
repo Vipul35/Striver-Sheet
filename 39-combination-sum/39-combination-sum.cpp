@@ -4,10 +4,11 @@ public:
     {
         if(idx==candidates.size())
         {
-            if(target==0)
-            {
-                ans.push_back(v);
-            }
+         return;
+        }
+        if(target==0)
+        {
+            ans.push_back(v);
             return;
         }
         if(candidates[idx]<=target)
