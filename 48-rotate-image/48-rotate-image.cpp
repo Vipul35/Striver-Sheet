@@ -12,9 +12,9 @@ public:
             temp.push_back(v);
             v.clear();
         }
-        for(int j=0;j<matrix[0].size();j++)
+        for(int i=0;i<matrix.size();i++)
         {
-            for(int i=0;i<matrix.size();i++)
+            for(int j=0;j<matrix.size();j++)
             {
                 matrix[j][i]=temp[i][j];
             }
