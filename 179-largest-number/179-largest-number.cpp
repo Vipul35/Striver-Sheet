@@ -15,7 +15,7 @@ public:
         }
         sort(res.begin(),res.end(),compare);
         string result="";
-        for(auto &it:res)
+        for(auto it:res)
         {
             result+=it;
         }
