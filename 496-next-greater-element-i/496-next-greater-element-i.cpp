@@ -9,8 +9,6 @@ public:
         vector<int> v;
         for(int i=0;i<nums1.size();i++)
         {
-            if(m.find(nums1[i])!=m.end())
-            {
             int x=m[nums1[i]];
                 int ans=-1;
             for(int j=x+1;j<nums2.size();j++)
@@ -22,7 +20,6 @@ public:
                 }
             }
                 v.push_back(ans);
-            }
         }
         return v;
     }
