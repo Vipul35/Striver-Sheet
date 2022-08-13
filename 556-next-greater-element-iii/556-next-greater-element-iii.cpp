@@ -17,7 +17,7 @@ public:
             ans=ans*10;
             ans+=v[i];
         }
-        if(ans>long(INT_MAX) || ans<=num)
+        if(ans>INT_MAX || ans<=num)
         {
             return -1;
         }
