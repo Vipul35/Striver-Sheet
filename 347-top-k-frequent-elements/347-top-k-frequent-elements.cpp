@@ -11,7 +11,11 @@ public:
         priority_queue<pair<int,int>> pq;
         for(auto it:m)
         {
-            pq.push({it.second,it.first});
+            pq.push({-(it.second),it.first});
+            if(pq.size()>k)
+            {
+                pq.pop();
+            }
         }
         for(int i=0;i<k;i++)
         {
