@@ -10,54 +10,27 @@
  */
 class Solution {
 public:
-    ListNode*merge(ListNode*lists1,ListNode*lists2)
-    {
-        ListNode*head1=lists1;
-        ListNode*head2=lists2;
-        ListNode*temp2=new ListNode(-1);
-        ListNode*temp=temp2;
-        while(head1!=NULL && head2!=NULL)
-        {
-            if(head1->val>=head2->val)
-            {
-                temp->next=head2;
-                temp=temp->next;
-                head2=head2->next;
-            }
-            else
-            {
-                temp->next=head1;
-                temp=temp->next;
-                head1=head1->next;
-            }
-        }
-        while(head1!=NULL)
-        {
-            temp->next=head1;
-            temp=temp->next;
-            head1=head1->next;
-        }
-        while(head2!=NULL)
-        {
-            temp->next=head2;
-            temp=temp->next;
-            head2=head2->next;
-        }
-        return temp2->next;
-    }
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        if(lists.size()==0)
+        map<int,int> m;
+        for(int i=0;i<lists.size();i++)
         {
-            return NULL;
+            while(lists[i])
+            {
+                m[lists[i]->val]++;
+                lists[i]=lists[i]->next;
+            }
         }
-        if(lists.size()==1)
+        ListNode*dummy=new ListNode(-1);
+        ListNode*temp=dummy;
+        for(auto it:m)
         {
-            return lists[0];
+            while(it.second)
+            {
+                temp->next=new ListNode(it.first);
+                temp=temp->next;
+                it.second--;
+            }
         }
-        for(int i=1;i<lists.size();i++)
-        {
-            lists[0]=merge(lists[0],lists[i]);
-        }
-        return lists[0];
+        return dummy->next;
     }
 };
