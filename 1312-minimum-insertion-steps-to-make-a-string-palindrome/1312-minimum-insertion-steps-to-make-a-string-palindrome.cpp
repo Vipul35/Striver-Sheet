@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int longestpalindrome(string text1,string text2)
+    int longestpalindrome(string &text1,string &text2)
     {
         int n=text1.size();
         vector<vector<int>> dp(n+1,vector<int> (n+1,-1));
