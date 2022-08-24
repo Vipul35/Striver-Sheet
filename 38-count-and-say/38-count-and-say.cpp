@@ -15,7 +15,8 @@ public:
                 counter++;
                 i++;
             }
-            res=res+to_string(counter)+s[i];
+            res+=to_string(counter);
+            res.push_back(s[i]);
             counter=1;
         }
         return res;
