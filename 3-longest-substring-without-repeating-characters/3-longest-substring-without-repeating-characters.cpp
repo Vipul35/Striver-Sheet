@@ -10,11 +10,9 @@ public:
         {
             while(visited.find(s[j])!=visited.end())
             {
-                visited.erase(s[i]);
-                i++;
+                visited.erase(s[i++]);
             }
-            visited.insert(s[j]);
-            j++;
+            visited.insert(s[j++]);
             ans=max(ans,j-i);
         }
         return ans;
