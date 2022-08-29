@@ -1,35 +1,37 @@
 class MinStack {
 public:
-    int a[10000];
-    int b[10000];
-    int i=0;
+    stack<pair<int,int>> s;
     int size=0;
     MinStack() {
         
     }
-    
     void push(int val) {
-        a[i]=val;
-        i++;
-        size++;
+        int mini;
+        if(size==0)
+        {
+            size++;
+            mini=val;
+        }
+        else
+        {
+            size++;
+            int value=s.top().second;
+            mini=min(val,value);
+        }
+        s.push({val,mini});
     }
     
     void pop() {
-             size--;
-             i--;
+        s.pop();
+        size--;
     }
     
     int top() {
-        return a[size-1];
+        return s.top().first;
     }
     
     int getMin() {
-        for(int i=0;i<size;i++)
-        {
-            b[i]=a[i];
-        }
-        sort(b,b+size);
-        return b[0];
+        return s.top().second;
     }
 };
 
