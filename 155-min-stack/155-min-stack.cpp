@@ -1,20 +1,17 @@
 class MinStack {
 public:
     stack<pair<int,int>> s;
-    int size=0;
     MinStack() {
         
     }
     void push(int val) {
         int mini;
-        if(size==0)
+        if(s.empty())
         {
-            size++;
             mini=val;
         }
         else
         {
-            size++;
             int value=s.top().second;
             mini=min(val,value);
         }
@@ -23,7 +20,6 @@ public:
     
     void pop() {
         s.pop();
-        size--;
     }
     
     int top() {
