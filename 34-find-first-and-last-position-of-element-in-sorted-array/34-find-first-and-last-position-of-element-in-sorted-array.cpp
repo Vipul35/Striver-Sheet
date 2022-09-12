@@ -1,32 +1,43 @@
 class Solution {
 public:
+    int occurence(vector<int> nums,int target,bool first)
+    {
+        int s=0;
+        int e=nums.size()-1;
+        int ans=-1;
+        while(s<=e)
+        {
+            int mid=(s+e)/2.0;
+            if(nums[mid]==target)
+            {
+                ans=mid;
+                if(first)
+                {
+                    e=mid-1;
+                }
+                else
+                {
+                    s=mid+1;
+                }
+            }
+            else if(nums[mid]<target)
+            {
+                s=mid+1;
+            }
+            else
+            {
+                e=mid-1;
+            }
+        }
+        return ans;
+    }
     vector<int> searchRange(vector<int>& nums, int target) {
-        int cnt=0;
-        int idx=0;
+        bool first=true;
         vector<int> v;
-        for(int i=0;i<nums.size();i++)
-        {
-            if(nums[i]==target && cnt==0)
-            {
-                idx=i;
-                v.push_back(i);
-                cnt++;
-            }
-            else if(nums[i]==target && cnt>0)
-            {
-                cnt++;
-                
-            }
-        }
-        if(cnt==0)
-        {
-            v.push_back(-1);
-            v.push_back(-1);
-        }
-        else
-        {
-            v.push_back(idx+cnt-1);
-        }
+        int a=occurence(nums,target,first);
+        int b=occurence(nums,target,false);
+        v.push_back(a);
+        v.push_back(b);
         return v;
     }
 };
