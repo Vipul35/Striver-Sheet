@@ -12,14 +12,10 @@ public:
                 v.push_back(i);
                 cnt++;
             }
-            else if(nums[i]==target && cnt!=0)
+            else if(nums[i]==target && cnt>0)
             {
                 cnt++;
                 
-            }
-            else
-            {
-                continue;
             }
         }
         if(cnt==0)
