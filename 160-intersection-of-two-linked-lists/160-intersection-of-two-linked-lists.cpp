@@ -13,49 +13,47 @@ public:
         {
             return NULL;
         }
-        if(head1==head2)
-        {
-            return head1;
-        }
+        ListNode*temp=head1;
+        ListNode*temp2=head2;
         int len1=0;
         int len2=0;
-        ListNode*pointer1=head1;
-        ListNode*pointer2=head2;
-        while(pointer1!=NULL)
+        while(temp!=NULL)
         {
+            temp=temp->next;
             len1++;
-            pointer1=pointer1->next;
         }
-        while(pointer2!=NULL)
+        while(temp2!=NULL)
         {
+            temp2=temp2->next;
             len2++;
-            pointer2=pointer2->next;
         }
-        int diff=abs(len1-len2);
-        if(len1>len2)
+        ListNode*list1=head1;
+        ListNode*list2=head2;
+        if(len2>len1)
         {
-            while(diff)
+            int n=len2-len1;
+            while(n--)
             {
-                diff--;
-                head1=head1->next;
+                list2=list2->next;
             }
         }
         else
         {
-            while(diff)
+            int n=len1-len2;
+            while(n--)
             {
-                diff--;
-                head2=head2->next;
+                list1=list1->next;
             }
         }
-        while(head1!=NULL && head2!=NULL)
+        while(list1!=NULL && list2!=NULL)
         {
-            if(head1==head2)
+            if(list1==list2)
             {
-                return head1;
+                return list1;
+                break;
             }
-            head1=head1->next;
-            head2=head2->next;
+            list1=list1->next;
+            list2=list2->next;
         }
         return NULL;
     }
