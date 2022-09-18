@@ -4,18 +4,17 @@ public:
     MinStack() {
         
     }
+    
     void push(int val) {
-        int mini;
         if(s.empty())
         {
-            mini=val;
+            s.push({val,val});
         }
         else
         {
-            int value=s.top().second;
-            mini=min(val,value);
+            int mini=min(s.top().second,val);
+            s.push({val,mini});
         }
-        s.push({val,mini});
     }
     
     void pop() {
