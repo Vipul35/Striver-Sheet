@@ -21,7 +21,7 @@ public:
     //         }
     //     }
     //     return false;
-        unordered_map<ListNode*,int> m;
+        set<ListNode*> m;
         ListNode*temp=head;
         while(temp!=NULL)
         {
@@ -32,7 +32,7 @@ public:
             }
             else
             {
-                m[temp]=temp->val;
+                m.insert(temp);
             }
             temp=temp->next;
         }
