@@ -36,21 +36,17 @@ public:
             return head;
         }
         int cnt=1;
-        ListNode*temp=head;
-        ListNode*prev=head;
+        // ListNode*temp=head;
+        // ListNode*prev=head;
         ListNode*temp2=new ListNode(-1);
-        if(cnt==left)
-        {
-            temp2->next=reverse(prev,left,right);
-            return temp2->next;
-        }
+        temp2->next=head;
+        ListNode*ans=temp2;
         while(cnt<left)
         {
             cnt++;
-            prev=temp;
-            temp=temp->next;
+            temp2=temp2->next;
         }
-        prev->next=reverse(prev->next,left,right);
-        return head;
+        temp2->next=reverse(temp2->next,left,right);
+        return ans->next;
     }
 };
