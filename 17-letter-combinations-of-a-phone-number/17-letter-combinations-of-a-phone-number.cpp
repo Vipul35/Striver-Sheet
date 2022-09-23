@@ -1,7 +1,7 @@
 class Solution {
 public:
    
-    void letter(string &v,vector<string> &ans,string digits,int i,unordered_map<int,string> &m)
+    void letter(string &v,vector<string> &ans,string &digits,int i,unordered_map<int,string> &m)
     {
         if(v.size()==digits.size())
         {
