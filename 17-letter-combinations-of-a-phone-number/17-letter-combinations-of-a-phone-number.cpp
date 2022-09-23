@@ -8,9 +8,7 @@ public:
             ans.push_back(v);
             return;
         }
-        int num=digits[i]-'0';
-        string x=m[num];
-        for(auto it:x)
+        for(auto it:m[digits[i]-'0'])
         {
             v+=it;
             letter(v,ans,digits,i+1,m);
