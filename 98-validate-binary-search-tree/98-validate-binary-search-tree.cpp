@@ -17,11 +17,11 @@ public:
         {
             return true;
         }
-        if(l>=root->val || r<=root->val)
+        if(root->val<=l || root->val>=r)
         {
             return false;
         }
-        return bst(root->left,l,root->val)&&bst(root->right,root->val,r);
+        return bst(root->left,l,root->val) & bst(root->right,root->val,r);
     }
     bool isValidBST(TreeNode* root) {
         return bst(root,LONG_MIN,LONG_MAX);
