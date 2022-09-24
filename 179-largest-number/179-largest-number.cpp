@@ -1,28 +1,27 @@
 class Solution {
 public:
-   static bool compare(string a,string b)
+    static bool compare(string a,string b)
     {
         string ab=a+b;
         string ba=b+a;
         return ab>ba;
     }
     string largestNumber(vector<int>& nums) {
-        int n=nums.size();
-        vector<string> res;
+        vector<string> ans;
         for(int i=0;i<nums.size();i++)
         {
-            res.push_back(to_string(nums[i]));
+            ans.push_back(to_string(nums[i]));
         }
-        sort(res.begin(),res.end(),compare);
-        string result="";
-        for(auto it:res)
+        sort(ans.begin(),ans.end(),compare);
+        string s="";
+        for(int i=0;i<ans.size();i++)
         {
-            result+=it;
+            s+=ans[i];
         }
-        if(result[0]=='0')
+        if(s[0]=='0')
         {
             return "0";
         }
-        return result;
+        return s;
     }
 };
